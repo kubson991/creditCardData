@@ -1,0 +1,30 @@
+.Succes {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.Succes img {
+  width: 20%;
+  margin: 2.5rem 0;
+}
+
+.Succes h1 {
+  font-size: 3.3rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
+
+.Succes p {
+  font-size: 2rem;
+  color: hsl(279, 6%, 55%);
+  padding-bottom: 6rem;
+}
+
+@media only screen and (min-device-width: 1400px) {
+  .Succes {
+    margin-bottom: 15rem;
+  }
+}

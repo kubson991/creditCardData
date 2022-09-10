@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+:root {
+}
+html {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: unset;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body,
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}

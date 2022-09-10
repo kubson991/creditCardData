@@ -1,0 +1,71 @@
+.Card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../assets/bg-card-front.png");
+  width: 30rem;
+  height: 15rem;
+  border-radius: 0.5rem;
+  position: relative;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.75);
+}
+.Card .circles {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+.Card .circles div:nth-child(1) {
+  border-radius: 50%;
+  border: solid 1px white;
+  height: 3rem;
+  width: 3rem;
+  background-color: white;
+}
+.Card .circles div:nth-child(2) {
+  border-radius: 50%;
+  border: solid 1px white;
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+.Card p {
+  color: white;
+  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+}
+
+.Card .numberCard {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 4.5rem;
+  letter-spacing: 0.1em;
+}
+.Card .Name {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: hsl(270, 3%, 87%);
+  max-width: 60%;
+  max-height: 1.3em;
+  overflow: hidden;
+}
+.Card .date {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  color: hsl(270, 3%, 87%);
+}
+
+@media only screen and (min-device-width: 1400px) {
+  .Card {
+    width: 40rem;
+    height: 21rem;
+  }
+  .Card .numberCard {
+    margin-top: 8.5rem;
+    font-size: 2.5rem;
+  }
+}
