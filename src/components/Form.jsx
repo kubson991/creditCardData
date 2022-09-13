@@ -1,33 +1,22 @@
 import "./Form.css";
 import { useState, useEffect } from "react";
+import formatter from "../helpers/formatter";
 
 function Form({ GetValues, submit }) {
   const [number, setNumber] = useState("");
   const [numberHelper, setnumberHelper] = useState("");
 
   useEffect(() => {
-    let formattedValue = "";
     if (
       !/^(?:(?![-\a-zA-Z(\,.$%)\ `+*\{\}\]\[=:;/_ \\]).)+$/.test(number) ||
       number.length > 16
     ) {
       setNumber(number.substring(0, number.length - 1));
     }
-
-    const spacesNeeded = number.split(/\d{4,4}/);
-
-    for (let index = 0; index < spacesNeeded.length - 1; index++) {
-      formattedValue =
-        formattedValue + number.slice(index * 4, (index + 1) * 4) + " ";
-      if (number.length % 4 != 0 && index === spacesNeeded.length - 2) {
-        formattedValue = formattedValue + spacesNeeded[spacesNeeded.length - 1];
-      }
-    }
-    if (number.length < 5) {
-      formattedValue = number;
-    }
+    const formattedValue = formatter(number);
     setnumberHelper(formattedValue);
   }, [number]);
+
   useEffect(() => {
     const { CSV, carholderName, month } =
       document.getElementById("creditCardForm").elements;
@@ -75,7 +64,7 @@ function Form({ GetValues, submit }) {
 
   return (
     <section className="Form">
-      <form onSubmit={Submit} id="creditCardForm">
+      <form onSubmit={Submit} id="creditCardForm" name="CrediCardForm">
         <div className="name ">
           <label htmlFor="carholderName" className="formLabel">
             CARDHOLDER NAME
@@ -87,6 +76,8 @@ function Form({ GetValues, submit }) {
             placeholder="e.g Jane Appleseed"
             onInput={ElemntChange}
             required
+            aria-label="NameInput"
+            pattern="^(?!(.*\d+.*)$).+$"
           />
         </div>
         <div className="number">
@@ -105,6 +96,7 @@ function Form({ GetValues, submit }) {
                 setNumber(e.target.value);
               }}
               value={number}
+              aria-label="CardNumberInput"
             />
           </div>
         </div>
@@ -120,6 +112,7 @@ function Form({ GetValues, submit }) {
               onClick={showOptions}
               required
               onInput={ElemntChange}
+              aria-label="CardDateInput"
             />
           </div>
           <div className="CSV">
@@ -135,6 +128,7 @@ function Form({ GetValues, submit }) {
               placeholder="e.g. 123"
               required
               onInput={ElemntChange}
+              aria-label="CSV"
             />
           </div>
         </div>
